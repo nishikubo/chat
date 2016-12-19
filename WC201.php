@@ -1,3 +1,4 @@
+
 <html>
 	<head>
 		<title>Chat</title>
@@ -5,25 +6,27 @@
 	<body>
 
 		<?php
-  		if(isset($_POST['yourName'])){
-  		$yourName=$_POST['yourName'];
-  		}
-  		else { 
-  		$yourName="";
-  		}
-  		if(isset($_POST['comment'])){
-  		$comment=$_POST['comment'];
+  		if(isset($_POST['loginid'])){
+  		$loginid=$_POST['loginid'];
   		}
   		else {
-  		$comment="";
+  		$loginid="";
+  		}
+  		if(isset($_POST['password'])){
+  		$password=$_POST['password'];
+  		}
+  		else {
+  		$password="";
   		}
 		?>
+		
 		<div>
 		<form action="WC201.php" name="form1" method="post">
-		<?php print $_REQUEST['yourName']; ?>
+		<?php print $_REQUEST['loginid']; ?>
   		<input name="comment" type="text">
-  		<input name="yourName" type="hidden" value=<?= $yourName ?>> 
-  		<input type="submit" name="fSub1" value="Write">  				
+  		<input name="loginid" type="hidden" value= $loginid >
+  		<input type="submit" name="fSub1" value="Write">
+  		<br>
 			<hr>
 			<script>
 			function koshin(){
@@ -31,10 +34,19 @@
 			}
 			</script>
 			<input type="submit" value="Refresh" onclick="koshin()">
-  			<div> <?php print $_REQUEST['yourName']; ?></div>
+  			<div> <?php print $_REQUEST['loginid']; ?></div>
+  		  		
+  		</form> 
   		<hr>
-  		  		<input type="submit" name="fSub2" value="Logout">
-  		</form>
+  		<form action="WC301.php" name="form1" method="post">  		
+  			<input type="submit" name="fSub2" value="History">	  		
+   		</form>
+
+		<form action="WC101.php" name="form1" method="post">  		
+  			<input type="submit" name="fSub2" value="Logout">	  		
+   		</form>
+   		
+
   		</div>
 	</body>
 </html>
